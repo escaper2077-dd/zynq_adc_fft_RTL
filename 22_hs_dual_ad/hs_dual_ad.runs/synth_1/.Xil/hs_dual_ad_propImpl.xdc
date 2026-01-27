@@ -53,3 +53,7 @@ set_property src_info {type:XDC file:1 line:31 export:INPUT save:INPUT read:READ
 set_property -dict {IOSTANDARD LVCMOS33 PACKAGE_PIN P18} [get_ports {ad1_data[9]}]
 set_property src_info {type:XDC file:1 line:32 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict {IOSTANDARD LVCMOS33 PACKAGE_PIN P19} [get_ports {ad1_oe}]
+set_property src_info {type:XDC file:1 line:35 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN XX [get_ports fft_valid_out]
+set_property src_info {type:XDC file:1 line:36 export:INPUT save:INPUT read:READ} [current_design]
+set_property IOSTANDARD LVCMOS33 [get_ports fft_valid_out]

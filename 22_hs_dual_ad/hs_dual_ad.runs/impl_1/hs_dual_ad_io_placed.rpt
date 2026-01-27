@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date                      : Tue Jan 27 15:45:30 2026
+| Date                      : Tue Jan 27 17:33:20 2026
 | Host                      : escaper-Lenovo-Legion-R9000X2021R running 64-bit Ubuntu 22.04.4 LTS
 | Command                   : report_io -file hs_dual_ad_io_placed.rpt
 | Design                    : hs_dual_ad

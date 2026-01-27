@@ -1,4 +1,4 @@
-#ʱ��Լ��
+#ʱ��Լ��
 create_clock -period 20.000 -name sys_clk [get_ports sys_clk]
 set_property -dict {IOSTANDARD LVCMOS33 PACKAGE_PIN U18} [get_ports sys_clk]
 
@@ -30,4 +30,8 @@ set_property -dict {IOSTANDARD LVCMOS33 PACKAGE_PIN R16} [get_ports {ad1_data[5]
 set_property -dict {IOSTANDARD LVCMOS33 PACKAGE_PIN W20} [get_ports {ad1_data[7]}]
 set_property -dict {IOSTANDARD LVCMOS33 PACKAGE_PIN P18} [get_ports {ad1_data[9]}]
 set_property -dict {IOSTANDARD LVCMOS33 PACKAGE_PIN P19} [get_ports {ad1_oe}]
+
+# 可以随便连接到一个未使用的引脚，或者悬空
+set_property PACKAGE_PIN XX [get_ports fft_valid_out]
+set_property IOSTANDARD LVCMOS33 [get_ports fft_valid_out]
 

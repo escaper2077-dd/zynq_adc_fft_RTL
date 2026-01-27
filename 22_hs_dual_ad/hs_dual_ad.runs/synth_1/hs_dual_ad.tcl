@@ -17,6 +17,8 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param xicom.use_bs_reader 1
+set_param tcl.collectionResultDisplayLimit 0
 create_project -in_memory -part xc7z020clg400-2
 
 set_param project.singleFileAddWarning.threshold 0
@@ -30,17 +32,20 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_verilog -library xil_defaultlib /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/new/hs_dual_ad.v
-read_ip -quiet /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-set_property used_in_implementation false [get_files -all /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
-set_property used_in_implementation false [get_files -all /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
-
+read_verilog -library xil_defaultlib /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/new/hs_dual_ad_fft.v
 read_ip -quiet /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/ila_0/ila_0.xci
 set_property used_in_synthesis false [get_files -all /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila_impl.xdc]
 set_property used_in_implementation false [get_files -all /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/ila_0/ila_v6_2/constraints/ila.xdc]
 set_property used_in_implementation false [get_files -all /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/ila_0/ila_0_ooc.xdc]
+
+read_ip -quiet /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+set_property used_in_implementation false [get_files -all /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
+set_property used_in_implementation false [get_files -all /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
+set_property used_in_implementation false [get_files -all /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
+
+read_ip -quiet /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/xfft_0/xfft_0.xci
+set_property used_in_implementation false [get_files -all /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/xfft_0/xfft_0_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -53,6 +58,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/constrs_1/new/pin.xdc
 set_property used_in_implementation false [get_files /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/constrs_1/new/pin.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 

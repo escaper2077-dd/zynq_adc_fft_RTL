@@ -65,6 +65,8 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param xicom.use_bs_reader 1
+  set_param tcl.collectionResultDisplayLimit 0
   create_project -in_memory -part xc7z020clg400-2
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
@@ -74,8 +76,9 @@ set rc [catch {
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   add_files -quiet /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.runs/synth_1/hs_dual_ad.dcp
-  read_ip -quiet /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
   read_ip -quiet /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/ila_0/ila_0.xci
+  read_ip -quiet /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+  read_ip -quiet /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/xfft_0/xfft_0.xci
   read_xdc /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/constrs_1/new/pin.xdc
   link_design -top hs_dual_ad -part xc7z020clg400-2
   close_msg_db -file init_design.pb
