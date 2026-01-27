@@ -68,15 +68,15 @@ set rc [catch {
   create_project -in_memory -part xc7z020clg400-2
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/ASUS/Desktop/21_hs_dual_ad/hs_dual_ad.cache/wt [current_project]
-  set_property parent.project_path C:/Users/ASUS/Desktop/21_hs_dual_ad/hs_dual_ad.xpr [current_project]
-  set_property ip_output_repo C:/Users/ASUS/Desktop/21_hs_dual_ad/hs_dual_ad.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.cache/wt [current_project]
+  set_property parent.project_path /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.xpr [current_project]
+  set_property ip_output_repo /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
-  add_files -quiet C:/Users/ASUS/Desktop/21_hs_dual_ad/hs_dual_ad.runs/synth_1/hs_dual_ad.dcp
-  read_ip -quiet C:/Users/ASUS/Desktop/21_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-  read_ip -quiet C:/Users/ASUS/Desktop/21_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/ila_0/ila_0.xci
-  read_xdc C:/Users/ASUS/Desktop/21_hs_dual_ad/hs_dual_ad.srcs/constrs_1/new/pin.xdc
+  add_files -quiet /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.runs/synth_1/hs_dual_ad.dcp
+  read_ip -quiet /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+  read_ip -quiet /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/sources_1/ip/ila_0/ila_0.xci
+  read_xdc /home/escaper/FPGA_prj/adc_pl/22_hs_dual_ad/hs_dual_ad.srcs/constrs_1/new/pin.xdc
   link_design -top hs_dual_ad -part xc7z020clg400-2
   close_msg_db -file init_design.pb
 } RESULT]

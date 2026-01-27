@@ -1,0 +1,4 @@
+Running: xsim.dir/tb_hs_dual_ad_behav/xsimk -simmode gui -wdb tb_hs_dual_ad_behav.wdb -simrunnum 0 -socket 40769
+Design successfully loaded
+Design Loading Memory Usage: 45080 KB (Peak: 45080 KB)
+Design Loading CPU Usage: 60 ms
